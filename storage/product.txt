@@ -1,0 +1,73 @@
+storage:
+name of the product 0 is: banan
+the expiration date of the product 0 is: 3052020
+date in storage of the product 0 is: 3012020
+name of manufactor of the product 0 is: ivan
+unit of the product 0 is: kg
+available quantity of the product 0 is: 20
+location of the product in storage 0 is: 01/01/05
+comment for the product 0 is: tova e testov product
+
+name of the product 1 is: banan
+the expiration date of the product 1 is: 3082020
+date in storage of the product 1 is: 3062020
+name of manufactor of the product 1 is: ivan
+unit of the product 1 is: kg
+available quantity of the product 1 is: 20
+location of the product in storage 1 is: 01/01/05
+comment for the product 1 is: tova e testov product
+
+name of the product 2 is: kiwi
+the expiration date of the product 2 is: 5052020
+date in storage of the product 2 is: 5032020
+name of manufactor of the product 2 is: ivan
+unit of the product 2 is: kg
+available quantity of the product 2 is: 21
+location of the product in storage 2 is: 02/02/06
+comment for the product 2 is: tova e testov product
+
+name of the product 3 is: honey
+the expiration date of the product 3 is: 4052021
+date in storage of the product 3 is: 3042021
+name of manufactor of the product 3 is: ivan
+unit of the product 3 is: kg
+available quantity of the product 3 is: 23
+location of the product in storage 3 is: 03/03/07
+comment for the product 3 is: tova e testov product
+
+name of the product 4 is: sugar
+the expiration date of the product 4 is: 4052021
+date in storage of the product 4 is: 3052021
+name of manufactor of the product 4 is: ivan
+unit of the product 4 is: kg
+available quantity of the product 4 is: 24
+location of the product in storage 4 is: 04/04/08
+comment for the product 4 is: tova e testov product
+
+name of the product 5 is: milk
+the expiration date of the product 5 is: 4072021
+date in storage of the product 5 is: 3042021
+name of manufactor of the product 5 is: ivan
+unit of the product 5 is: liter
+available quantity of the product 5 is: 25
+location of the product in storage 5 is: 05/05/09
+comment for the product 5 is: tova e testov product
+
+name of the product 6 is: biscuit
+the expiration date of the product 6 is: 4042021
+date in storage of the product 6 is: 3042021
+name of manufactor of the product 6 is: ivan
+unit of the product 6 is: kg
+available quantity of the product 6 is: 26
+location of the product in storage 6 is: 06/06/10
+comment for the product 6 is: tova e testov product
+
+name of the product 7 is: desert
+the expiration date of the product 7 is: 4032021
+date in storage of the product 7 is: 3042021
+name of manufactor of the product 7 is: ivan
+unit of the product 7 is: kg
+available quantity of the product 7 is: 27
+location of the product in storage 7 is: 07/07/04
+comment for the product 7 is: tova e testov product
+
