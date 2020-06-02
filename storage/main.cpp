@@ -57,6 +57,9 @@ int main(){
     // Product product8("biscuit", 4042021, 12510, "ivan", "kg", 26, "tova_e_testov_product");//greshno zadadena data trqbva da se zadade nova
     // Product product9("desert", 4032021, 3042021, "ivan", "kg", 27, "tova_e_testov_product");//posle mahame 27 kg trqbva da go iztrie;
 
+    // add tigani 5052020 5102020 lidl kg 20 comment 10101
+    // add tengeri 5092020 5102020 lidl kg 20 comment 30303
+
     // storage.add_product(product1);
     // storage.add_product(product2);
     // storage.add_product(product3);
@@ -85,7 +88,7 @@ int main(){
 
     while(input != exit_command){
 
-        vector<string> words = split(input);
+        string* words = split(input);
         string command = words[0];
 
         if(command == open_command){
@@ -123,19 +126,19 @@ int main(){
             int quantity = stoi(words[6]);
             char* comment = new char[words[7].length()+1];
             strcpy(comment, words[7].c_str());
+            int location = stoi(words[8]);
 
             Product product(name, expiration_date, date_in_storage, name_of_manufactor, unit, quantity, comment);
-            storage.add_product(product);
+            storage.add_product(product, location);
             storage.in_to_file("product1.txt");
 
             delete[] name; delete[] name_of_manufactor; delete[] unit, delete[] comment;
 
         }else if(command == clear_command){
 
-            // char* file_for_save = new char[words[1].length()+1];
-            // strcpy(file_for_save, words[1].c_str());
+            int date = stoi(words[1]);
 
-            storage.clean_odd_products();
+            storage.clean_odd_products(date);
             storage.in_to_file("product1.txt");
 
         }else if(command == remove_command){
@@ -145,8 +148,6 @@ int main(){
             int quality = stoi(words[2]);
             char* unit_of_product = new char[words[3].length()+1];
             strcpy(unit_of_product, words[3].c_str());
-            // char* file_for_save = new char[words[4].length()+1];
-            // strcpy(file_for_save, words[4].c_str());
 
             storage.remove_product(name_of_product, quality, unit_of_product);
             storage.in_to_file("product1.txt");
@@ -166,11 +167,7 @@ int main(){
 
         }else if(command == print_command){
 
-            //char* file_name_print = new char[words[1].length()+1];
-            //strcpy(file_name_print, words[1].c_str());
             storage.print_file("product1.txt");
-
-            //delete[] file_name_print;
 
         }
 

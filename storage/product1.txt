@@ -1,17 +1,17 @@
 storage:
-name of the product 0 is: kiwi
+name of the product 0 is: tigani
 the expiration date of the product 0 is: 5052020
-date in storage of the product 0 is: 5032020
-name of manufactor of the product 0 is: ivan
+date in storage of the product 0 is: 5102020
+name of manufactor of the product 0 is: lidl
 unit of the product 0 is: kg
-available quantity of the product 0 is: 16
-comment for the product 0 is: test
+available quantity of the product 0 is: 20
+comment for the product 0 is: comment
 
-name of the product 1 is: paprat
-the expiration date of the product 1 is: 6052020
-date in storage of the product 1 is: 3042021
-name of manufactor of the product 1 is: ivan
+name of the product 1 is: tigani1
+the expiration date of the product 1 is: 5052020
+date in storage of the product 1 is: 5102020
+name of manufactor of the product 1 is: lidl
 unit of the product 1 is: kg
 available quantity of the product 1 is: 20
-comment for the product 1 is: test
+comment for the product 1 is: comment
 

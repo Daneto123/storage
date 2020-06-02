@@ -1,4 +1,3 @@
-#pragma once
 #include "exeption.cpp"
 #include "storage.h"
 #include "function_for_currect_data.cpp"
@@ -36,13 +35,13 @@ Storage& Storage::operator=(const Storage& other){
     return *this;
 }
 
-void Storage::add_product(Product &product){
+void Storage::add_product(Product &product, int location){
 
     //cout<<product.name<<endl;
     //cout<<product.comment<<endl;
     char* new_unit = new char[8];
-    int quantity = 0, new_date = 0, loct = 0;
-    bool flag = true, flag_ed = false, flag_ds = false, flag_u = false, flag_l = false;
+    int quantity = 0, new_date = 0;
+    bool flag = true, flag_ed = false, flag_ds = false, flag_u = false;
 
     for(int i = 0 ;i < currentNumber;i++){
         if(strcmp((*products[i]).getName(), product.getName()) == 0){
@@ -84,15 +83,13 @@ void Storage::add_product(Product &product){
             flag_u = true;
         }
 
-        // Location location;
-        // cout<<"enter location " << product.getName()<<" ";
-        // cin>>loct;
-        // int section = (loct/10000)%10;
-        // int shelf = (loct/100)%100;
-        // int num = (loct%100);
+        Location locat;
+        int section = (location/10000)%10;
+        int shelf = (location/100)%100;
+        int num = (location%100);
 
-        // Position position(section, shelf, num);
-        // location.is_free_location(position);
+        Position position(section, shelf, num);
+        locat.is_free_location(position);
         
     }
 
@@ -107,18 +104,19 @@ void Storage::add_product(Product &product){
 
 /**
  * изчиства продуктите с изтекъл срок на годност
+ * @param date - дата под която да изчисти 
  */
 
-void Storage::clean_odd_products() {
+void Storage::clean_odd_products(int date) {
 
     //int day = 27;
     //int month = 3;
-    int date = 0;
-    cout<<clean_odd_products_date;
-    cin>>date;
+    Location locat;
+
     for(int i = 0; i < currentNumber;i++){
         if((*products[i]).getExpiration_date() <= date){
            move(i);
+           locat.remove_location(i);
         }
     }
     cout<<clean_odd_successfuly;
@@ -138,22 +136,18 @@ void Storage::log_products(int start_date, int end_date){
 
     for(size_t i = 0;i < currentNumber;i++){
         if(start_date < (*products[i]).getDate_in_storage()){
-            k = i;
             cout<<"you entered products: "<<endl;
-            while(start_date<end_date){
-                if(k<currentNumber){
-                    if((*products[k]).getDate_in_storage() < end_date){
-                        cout<<name_of_product<<(*products[k]).getName()<<endl;
-                        cout<<expiration_date_of_product<<(*products[k]).getExpiration_date()<<endl;
-                        cout<<date_in_storage_of_product<<(*products[k]).getDate_in_storage()<<endl;
-                        cout<<quantity_of_product<<(*products[k]).getAvailable_quantity()<< " " <<endl;//products[k].getUnit()<<endl;
-                        cout<<endl;
-                    }
-                    k++;
-                    start_date +=  100000;
+            for(int m = start_date, k = i; start_date <= end_date && k<currentNumber;m += 10000, k++){
+                if((*products[k]).getDate_in_storage() <= end_date){
+                    cout<<name_of_product<<(*products[k]).getName()<<endl;
+                    cout<<expiration_date_of_product<<(*products[k]).getExpiration_date()<<endl;
+                    cout<<date_in_storage_of_product<<(*products[k]).getDate_in_storage()<<endl;
+                    cout<<quantity_of_product<<(*products[k]).getAvailable_quantity()<< " " <<(*products[k]).getUnit()<<endl;
+                    cout<<endl;
                 }
             }
         }
+        break;
     }
 }
 
@@ -166,7 +160,7 @@ void Storage::log_products(int start_date, int end_date){
 
 void Storage::remove_product(const char* name_to_remove, int quantity, const char* unit_to_remove){
 
-    Location location;
+    Location locat;
     for(int i = 0; i < currentNumber;i++){
         if(strcmp((*products[i]).getName(), name_to_remove) == 0){
             if(((*products[i]).getAvailable_quantity() >= quantity) && ((strcmp((*products[i]).getUnit(), unit_to_remove) == 0))){
@@ -174,7 +168,7 @@ void Storage::remove_product(const char* name_to_remove, int quantity, const cha
                 if((*products[i]).getAvailable_quantity() == 0){
                     cout<<cleaned_location_successfuly;
                     move(i);
-                    location.remove_location(i);
+                    locat.remove_location(i);
                 }else{
                     cout<<"you successfuly removed "<<quantity<<" left: "<<(*products[i]).getAvailable_quantity() << " " << (*products[i]).getUnit() <<" from " <<(*products[i]).name<<endl<<endl;
                 }

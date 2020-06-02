@@ -1,4 +1,3 @@
-#pragma once
 #include "location.h"
 
 /**
@@ -8,37 +7,38 @@
 
 void Location::is_free_location(Position &position){
 
-    //bool flag = false;
+    bool flag = true;
+    int new_loct, count;
 
-    // for (size_t i = 0; i < currentNumberLocation; i++){
-    //     if(((*locations[i]).get_section() == position.get_section()) && ((*locations[i]).get_shelf() == position.get_shelf()) && ((*locations[i]).get_num() == position.get_num())){
-    //     if((*locations[i]).get_section() != position.get_section()){
-    //         flag = false;
-    //         std::cout<<"false";
-    //     }
-    // }
+    for (int i = 0; i < locations.size(); i++){
+        if(locations[i].get_shelf() == position.get_shelf()){
+            cout<<"shelf-a e zaet"<<endl;
+            if(locations[i].get_num() == position.get_num()){
+                cout<<"please enter new num ";
+                cin>>new_loct;
+                locations.push_back(Position(position.get_section(), position.get_shelf(), new_loct));
+                cout<<locations[i].get_section()<<locations[i].get_shelf()<<locations[i].get_num()<<endl;
+                flag = false;
+            }
+        }
+    }
 
-    //if(flag == false){
-        locations[currentNumberLocation] = new Position(position.get_section(), position.get_shelf(), position.get_num());
-        cout<<currentNumberLocation<<"you successfuly add product "<<(*locations[currentNumberLocation]).get_section()<<(*locations[currentNumberLocation]).get_shelf()<<(*locations[currentNumberLocation]).get_num()<<endl;
-        currentNumberLocation++;
-
-        //flag = true;
-    //}
-
-
-    //return flag;
+    if(flag == true){
+        locations.push_back(Position(position.get_section(), position.get_shelf(), position.get_num()));
+        cout<<"you successfuly add product "<<locations[count].get_section()<<locations[count].get_shelf()<<locations[count].get_num()<<endl;
+        count++;
+    }
 
 }
 
+/**
+* този метод изчиства локация
+* @param index - индех на елемента който искаме да махнем
+*/
+
 void Location::remove_location(int index){
 
-    for (size_t i = index; i < currentNumberLocation; i++){
-        (*locations[i]).set_section((*locations[i+1]).get_section());
-        (*locations[i]).set_shelf((*locations[i+1]).get_shelf());
-        (*locations[i]).set_num((*locations[i+1]).get_num());
-
-    }
+    locations.erase(locations.begin(), locations.begin() + index);
     
     cout<<"location is eraced successfuly"<<endl;
 

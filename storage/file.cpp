@@ -13,7 +13,7 @@ void Storage::in_to_file(const char* file_path){
 
     if(outputFileStream.is_open()) {
         outputFileStream << "storage:"<<endl;
-        Location location;
+        Location locat;
          for (size_t k = 0; k < currentNumber; k++){
             outputFileStream<<name_of_product << k << " is: " << (*products[k]).getName() << endl;
             outputFileStream<<expiration_date_of_product << k << " is: " << (*products[k]).getExpiration_date() << endl;
@@ -21,7 +21,9 @@ void Storage::in_to_file(const char* file_path){
             outputFileStream<<name_of_manufactor_of_product << k << " is: " << (*products[k]).getName_of_manufactor() << endl;
             outputFileStream<<unit_of_product << k << " is: " << (*products[k]).getUnit() << endl;
             outputFileStream<<quantity_of_product<< k << " is: " << (*products[k]).getAvailable_quantity() << endl;
-            //outputFileStream<<"location of the product in storage " << k << " is: " << location.get_location(k) << endl;
+            // outputFileStream<<"location of the product in storage " << k << " is: " << locat.locations[k].get_section()<<
+            //                                                                            locat.locations[k].get_shelf()<<
+            //                                                                            locat.locations[k].get_num()<< endl;
             outputFileStream<<comment_of_product<< k << " is: " << (*products[k]).getComment() << endl;
             outputFileStream<<endl;
             cout<<"product " << k << " " << (*products[k]).getName() << " is successufly added to file" << endl;
@@ -54,19 +56,24 @@ void Storage::print_file(const char* file_path){
     }
 }
 
-vector<string> split(const string &input){
-
-    vector<string> words; 
-    string word = ""; 
-    for (auto x : input){ 
-        if (x == ' '){ 
-            words.push_back(word);
-            word = ""; 
-        }else{ 
-            word = word + x; 
-        } 
-    }  
-    words.push_back(word);
+string* split(const string &input){
     
+    string* words = new string[256];
+    int counter;
+
+    string word = "";
+    for(auto x : input){
+        if(x == ' '){
+            words[counter] = word;
+            counter++;
+            word = "";
+        }else{
+            word = word + x;
+        }
+        words[counter] = word;
+    }
+
     return words;
+
+    delete[] words;
 }

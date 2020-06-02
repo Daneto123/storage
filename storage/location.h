@@ -42,55 +42,22 @@ public:
 
 class Location : public Position{
     friend class Position;
-private:
-    int currentNumberLocation;
-    Position** locations;
-
+protected:
+    vector<Position> locations;
 public:
-    void remove_el(){
 
-        for(int i = 0;i<currentNumberLocation;i++){
-            delete locations[i];
-        }
+    Location() : locations() {}
 
-        delete[] locations;
-    }
+    Location(vector<Position> locations) : locations(locations) {}
 
-    Location(){
-        locations = new Position*[10];
-        currentNumberLocation = 0;
-    }
-
-    Location(int currentNumberLocation){
-        locations = new Position*[currentNumberLocation];
-        currentNumberLocation = currentNumberLocation;
-    }
-
-    Location(const Location& other){
-        locations = new Position*[10];
-        for (int i = 0; i < other.currentNumberLocation; i++){
-            locations[i] = new Position(*other.locations[i]);
-        }
-        currentNumberLocation = other.currentNumberLocation;
-    }
+    Location(const Location& other) : locations(other.locations) {}
 
     Location& operator=(const Location& other){
         if(this == &other){
-            return *this;
+            locations = other.locations;
         }
-        remove_el();
-
-        locations = new Position*[10];
-        for (int i = 0; i < other.currentNumberLocation; i++){
-            locations[i] = new Position(*other.locations[i]);
-        }
-        currentNumberLocation = other.currentNumberLocation;
 
         return *this;
-    }
-
-    ~Location(){
-        remove_el();
     }
 
     void is_free_location(Position &position);
