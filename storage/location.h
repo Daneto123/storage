@@ -4,24 +4,24 @@ using namespace std;
 
 class Position {
 private:
-    int section;
-    int shelf;
-    int num;
+    int _section;
+    int _shelf;
+    int _num;
 
 public:
 
-    Position() : section(0), shelf(0), num(0) {}
-    Position(int section, int shelf, int num) : section(section), shelf(shelf), num(num) {}
+    Position() : _section(0), _shelf(0), _num(0) {}
+    Position(int _section, int _shelf, int _num) : _section(_section), _shelf(_shelf), _num(_num) {}
     Position(const Position &other){
-        section = other.section;
-        shelf = other.shelf;
-        num = other.num;
+        _section = other._section;
+        _shelf = other._shelf;
+        _num = other._num;
     }
     Position& operator=(const Position &other){
         if(this != &other){
-            section = other.section;
-            shelf = other.shelf;
-            num = other.num;
+            _section = other._section;
+            _shelf = other._shelf;
+            _num = other._num;
         }
 
         return *this;
@@ -30,13 +30,13 @@ public:
 
     }
 
-    void set_section(int section){section = section; }
-    void set_shelf(int shelf){shelf = shelf; }
-    void set_num(int num){num = num; }
+    void set_section(int _section){_section = _section; }
+    void set_shelf(int _shelf){_shelf = _shelf; }
+    void set_num(int _num){_num = _num; }
 
-    int get_section()const { return section; }
-    int get_shelf()const { return shelf; }
-    int get_num()const { return num; }
+    int get_section()const { return _section; }
+    int get_shelf()const { return _shelf; }
+    int get_num()const { return _num; }
 
 };
 

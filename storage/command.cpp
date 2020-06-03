@@ -1,4 +1,3 @@
-#include "exeption.cpp"
 #include "command.h"
 
 void Command::open(string file_name){
@@ -11,9 +10,9 @@ void Command::open(string file_name){
             file_read.push_back(line);
             size_of_vector++;
         }
-        cout<<open_successfuly;
+        cout<<"successfuly opened\n";
     }else{
-        cout<<open_problem;
+        cout<<"can't open the file\n";
     }
 
 }
@@ -21,10 +20,10 @@ void Command::open(string file_name){
 void Command::close(){
 
     if(file.is_open()){
-        cout<<close_successfuly;
+        cout<<"the file was successfuly closed\n";
         file.close();
     }else{
-        cout<<open_problem;
+        cout<<"can't open the file\n";
     }
 
 }
@@ -41,27 +40,21 @@ void Command::save_as(string file_name){
         for(int i = 0; i<size_of_vector;i++){
             file << file_read[i] << endl;
         }
-        cout<<save_successfuly;
+        cout<<"successfuly saved\n";
     }else{
-        cout<<open_problem;
+        cout<<"can't open the file\n";
     }
 
 }
 
 void Command::help(){
 
-    cout<<help_list;
+    cout << "The following commands are supported:\n"
+            "open <file>	    opens <file>\n"
+            "close			closes currently opened file\n"
+            "save			    saves the currently open file\n"
+            "saveas <file>	saves the currently open file in <file>\n"
+            "help			    prints this information\n"
+            "exit			    exists the program\n";
 
 }
-
-// int main(){
-
-//     Command command;
-//     //command.open("product1.txt");
-//     //command.close();
-//     //command.save();
-//     //command.save_as("product1.txt");
-//     //command.help();
-
-//     return 0;
-// }

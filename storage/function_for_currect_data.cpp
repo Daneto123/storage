@@ -1,5 +1,4 @@
 #pragma once
-#include "exeption.cpp"
 #include "storage.h"
 
 /**
@@ -25,7 +24,7 @@ bool is_valid_date(int date) {
             }
         }
         if(flag == false){
-            cout<<valide_date;
+            cout<<"please enter the valid date year/month/date/ - ****/**/**\n";
         }
     }
 
@@ -48,7 +47,7 @@ bool currect_unit(char* unit){
     }
 
     if(flag == false){
-        cout<<valide_unit;
+        cout<<"it allow only : gr,kg,ml,l,lbs | please enter the valid unit ";
     }
 
     return flag;
@@ -56,21 +55,21 @@ bool currect_unit(char* unit){
 }
 
 void Storage::move(int i){
-    for (int k = i; k < currentNumber; k++){ 
-        (*products[k]).name = (*products[k+1]).name;
+    for (int k = i; k < current_number; k++){ 
+        (*products[k])._name = (*products[k+1])._name;
         (*products[k]).expiration_date = (*products[k+1]).expiration_date;
         (*products[k]).date_in_storage = (*products[k+1]).date_in_storage;
         (*products[k]).name_of_manufactor = (*products[k+1]).name_of_manufactor;
-        (*products[k]).unit = (*products[k+1]).unit;
+        (*products[k])._unit = (*products[k+1])._unit;
         (*products[k]).available_quantity = (*products[k+1]).available_quantity;
-        (*products[k]).comment = (*products[k+1]).comment;
+        (*products[k])._comment = (*products[k+1])._comment;
     }
-    currentNumber--;
+    current_number--;
 }
 
 // void Storage::move(int i){
-//     for (int k = i; k < currentNumber; k++){ 
+//     for (int k = i; k < current_number; k++){ 
 //         delete products[i];
 //     }
-//     currentNumber--;
+//     current_number--;
 // }

@@ -39,8 +39,7 @@
 #include "product.cpp"
 #include "command.cpp"
 #include "file.cpp"
-#include "exeption.cpp"
-#include <stdio.h>
+//#include <stdio.h>
 
 int main(){
 
@@ -60,16 +59,6 @@ int main(){
     // add tigani 5052020 5102020 lidl kg 20 comment 10101
     // add tengeri 5092020 5102020 lidl kg 20 comment 30303
 
-    // storage.add_product(product1);
-    // storage.add_product(product2);
-    // storage.add_product(product3);
-    // storage.add_product(product4);
-    // storage.add_product(product5);
-    // storage.add_product(product6);
-    // storage.add_product(product7);
-    // storage.add_product(product8);
-    // storage.add_product(product9);
-
     // storage.show_products();
     // storage.remove_product("desert", 27, "kg");//raboti
     // storage.remove_product("biskcuit", 10, "kg");//raboti
@@ -80,40 +69,41 @@ int main(){
     // storage.print_file("product1.txt");
     
     cout<<"in the app"<<endl;
+
     string input;
     getline(cin, input);
 
     Storage storage;
     Command commands;
 
-    while(input != exit_command){
+    while(input != "print"){
 
         string* words = split(input);
         string command = words[0];
 
-        if(command == open_command){
+        if(command == "open"){
 
             string file_name = words[1];
             commands.open(file_name);
 
-        }else if(command == close_command){
+        }else if(command == "close"){
 
             commands.close();
 
-        }else if(command == save_command){
+        }else if(command == "save"){
 
             commands.save();
 
-        }else if(command == save_as_command){
+        }else if(command == "save_as"){
 
             string file_name = words[1];
             commands.save_as(file_name);
 
-        }else if(command == help_command){
+        }else if(command == "help"){
 
             commands.help();
 
-        }else if(command == add_command){
+        }else if(command == "add"){
 
             char* name = new char[words[1].length()+1];
             strcpy(name, words[1].c_str());
@@ -134,14 +124,14 @@ int main(){
 
             delete[] name; delete[] name_of_manufactor; delete[] unit, delete[] comment;
 
-        }else if(command == clear_command){
+        }else if(command == "clean"){
 
             int date = stoi(words[1]);
 
             storage.clean_odd_products(date);
             storage.in_to_file("product1.txt");
 
-        }else if(command == remove_command){
+        }else if(command == "remove"){
             
             char* name_of_product = new char[words[1].length()+1];
             strcpy(name_of_product, words[1].c_str());
@@ -155,17 +145,17 @@ int main(){
             delete[] name_of_product;
             delete[] unit_of_product;
 
-        }else if(command == show_command){
+        }else if(command == "show"){
 
             storage.show_products();
 
-        }else if(command == log_command){
+        }else if(command == "log"){
 
             int start_date = stoi(words[1]);
             int end_date = stoi(words[2]);
             storage.log_products(start_date, end_date);
 
-        }else if(command == print_command){
+        }else if(command == "print"){
 
             storage.print_file("product1.txt");
 
