@@ -4,7 +4,6 @@
 #include <fstream>
 
 class Storage : public Product {
-    //friend class Product;
     friend class Location;
 protected:
     int current_number;
@@ -27,5 +26,5 @@ public:
     void move(int i);
     void in_to_file(const string &file_path);
     void print_file(const string &file_path);
-
+    
 };
