@@ -1,19 +1,19 @@
 storage:
-name of the product 0 is: tigani
-the expiration date of the product 0 is: 5052020
-date in storage of the product 0 is: 5102020
-name of manufactor of the product 0 is: lidl
+name of the product 0 is: dango
+the expiration date of the product 0 is: 1062001
+date in storage of the product 0 is: 1062060
+name of manufactor of the product 0 is: dango
 unit of the product 0 is: kg
-available quantity of the product 0 is: 40
+available quantity of the product 0 is: 19
 location of the product in storage 0 is: 111
-comment for the product 0 is: comment
+comment for the product 0 is: test
 
-name of the product 1 is: tigani3
-the expiration date of the product 1 is: 5052020
-date in storage of the product 1 is: 5102020
-name of manufactor of the product 1 is: lidl
+name of the product 1 is: dango1
+the expiration date of the product 1 is: 1032007
+date in storage of the product 1 is: 1062060
+name of manufactor of the product 1 is: dango
 unit of the product 1 is: kg
-available quantity of the product 1 is: 20
-location of the product in storage 1 is: 133
-comment for the product 1 is: comment
+available quantity of the product 1 is: 19
+location of the product in storage 1 is: 113
+comment for the product 1 is: test
 

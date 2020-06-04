@@ -25,7 +25,7 @@ public:
     void remove_product(const char* name_to_remove, int quantity, const char* unit_to_remove);
     void show_products();
     void move(int i);
-    void in_to_file(const char* file_path);
-    void print_file(const char* file_path);
+    void in_to_file(const string &file_path);
+    void print_file(const string &file_path);
 
 };

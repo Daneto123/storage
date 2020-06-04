@@ -43,9 +43,27 @@
 int main(){
 
 //примерен тест
+    //Storage storage;
 
-    // add tigani 5052020 5102020 lidl kg 20 comment 10101
-    // add tengeri 5092020 5102020 lidl kg 20 comment 30303
+    // Product product1("banan", 3052020, 3012020, "ivan", "kg", 20, "tova_e_testov_product");
+    // Product product2("banan", 3052020, 3062020, "ivan", "kg", 20, "tova_e_testov_product");//ednakuv s purviqt trqbva da go pribavi
+    // Product product3("kiwi", 5052020, 5032020, "ivan", "mkr", 21, "tova_e_testov_product");//ima greshna merna edenica
+    // Product product4("kiwi", 6052020, 5032020, "ivancho", "kg", 5, "tova_e_testov_product");//ima ednakvo ime s gorniqt product i trvqbva pri printa da go izkara samo kiwi
+    // Product product5("honey", 4052021, 3042021, "ivan", "kg", 23, "tova_e_testov_product");
+    // Product product6("sugar", 4052021, 3052021, "ivan", "kg", 24, "tova_e_testov_product");//ima ednakva locaciq s gorniqt product i trqbva da zadam nova
+    // Product product7("milk", 1234, 3042021, "ivan", "l", 25, "tova_e_testov_product");//ima greshna data trqbva da se zapishe nova
+    // Product product8("biscuit", 4042021, 12510, "ivan", "kg", 26, "tova_e_testov_product");//greshno zadadena data trqbva da se zadade nova
+    // Product product9("desert", 4032021, 3042021, "ivan", "kg", 27, "tova_e_testov_product");//posle mahame 27 kg trqbva da go iztrie;
+
+    // storage.add_product(product1);
+    // storage.add_product(product2);
+    // storage.add_product(product3);
+    // storage.add_product(product4);
+    // storage.add_product(product5);
+    // storage.add_product(product6);
+    // storage.add_product(product7);
+    // storage.add_product(product8);
+    // storage.add_product(product9);
 
     // storage.show_products();
     // storage.remove_product("desert", 27, "kg");//raboti
@@ -57,14 +75,13 @@ int main(){
     // storage.print_file("product1.txt");
     
     cout<<"in the app"<<endl;
-
     string input;
     getline(cin, input);
 
     Storage storage;
     Command commands;
 
-    while(input != "print"){
+    while(input != "exit"){
 
         string* words = split(input);
         string command = words[0];
@@ -83,11 +100,9 @@ int main(){
             storage.in_to_file("product1.txt");
 
         }else if(command == "save_as"){
-            
-            char* file_name = new char[words[1].length() + 1];
-            strcpy(file_name, words[1].c_str());
+
+            string file_name = words[1];
             storage.in_to_file(file_name);
-            delete file_name;
 
         }else if(command == "help"){
 
@@ -117,7 +132,6 @@ int main(){
         }else if(command == "clean"){
 
             int date = stoi(words[1]);
-
             storage.clean_odd_products(date);
             storage.in_to_file("product1.txt");
 
@@ -151,9 +165,11 @@ int main(){
 
         }
 
+        delete[] words;
         getline(cin, input);
 
     }
+
 
     return 0;
 }

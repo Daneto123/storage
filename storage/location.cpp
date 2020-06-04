@@ -12,9 +12,8 @@ void Location::is_free_location(Position *position){
 
     for (int i = 0; i < locations.size(); i++){
         if((*locations[i]).get_shelf() == (*position).get_shelf()){
-            cout<<"shelf-a e zaet"<<endl;
             if((*locations[i]).get_num() == (*position).get_num()){
-                cout<<"please enter new num ";
+                cout<<"please enter new location ";
                 cin>>new_loct;
                 int section = (new_loct/10000)%10;
                 int shelf = (new_loct/100)%100;

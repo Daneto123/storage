@@ -11,7 +11,7 @@ protected:
 
 public:
 
-    void open(string file_name);
+    void open(const string &file_name);
     void close();
     void help();
 

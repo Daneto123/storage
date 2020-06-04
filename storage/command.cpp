@@ -1,6 +1,6 @@
 #include "command.h"
 
-void Command::open(string file_name){
+void Command::open(const string &file_name){
 
     file.open(file_name);
     if (file.is_open()){

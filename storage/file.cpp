@@ -5,7 +5,7 @@
  * @param file_path - името на фаелът с които искаме да работим
  */
 
-void Storage::in_to_file(const char* file_path){
+void Storage::in_to_file(const string &file_path){
 
     ofstream output_file_stream;
     output_file_stream.open(file_path, ios::out);
@@ -37,7 +37,7 @@ void Storage::in_to_file(const char* file_path){
  * @param file_path - името на фаелът с които искаме да работим
  */
 
-void Storage::print_file(const char* file_path){
+void Storage::print_file(const string &file_path){
 
     ifstream input_file_stream;
     input_file_stream.open(file_path, ios::in);
