@@ -12,7 +12,6 @@ void Storage::in_to_file(const char* file_path){
 
     if(output_file_stream.is_open()) {
         output_file_stream << "storage:"<<endl;
-        Location locat;
          for (size_t k = 0; k < current_number; k++){
             output_file_stream<<"name of the product " << k << " is: " << (*products[k]).get_name() << endl;
             output_file_stream<<"the expiration date of the product "<< k << " is: " << (*products[k]).get_expiration_date() << endl;
@@ -20,9 +19,9 @@ void Storage::in_to_file(const char* file_path){
             output_file_stream<<"name of manufactor of the product " << k << " is: " << (*products[k]).get_name_of_manufactor() << endl;
             output_file_stream<<"unit of the product " << k << " is: " << (*products[k]).get_unit() << endl;
             output_file_stream<<"available quantity of the product " << k << " is: " << (*products[k]).get_available_quantity() << endl;
-            // outputFileStream<<"location of the product in storage " << k << " is: " << locat.locations[k].get_section()<<
-            //                                                                            locat.locations[k].get_shelf()<<
-            //                                                                            locat.locations[k].get_num()<< endl;
+            output_file_stream<<"location of the product in storage " << k << " is: " << (*locations[k]).get_section()<<
+                                                                                         (*locations[k]).get_shelf()<<
+                                                                                         (*locations[k]).get_num()<< endl;
             output_file_stream<<"comment for the product "<< k << " is: " << (*products[k]).get_comment() << endl;
             output_file_stream<<endl;
             cout<<"product " << k << " " << (*products[k]).get_name() << " is successufly added to file" << endl;

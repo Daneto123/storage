@@ -1,9 +1,19 @@
 storage:
-name of the product 0 is: banan
-the expiration date of the product 0 is: 3052020
-date in storage of the product 0 is: 3012020
-name of manufactor of the product 0 is: ivan
+name of the product 0 is: tigani
+the expiration date of the product 0 is: 5052020
+date in storage of the product 0 is: 5102020
+name of manufactor of the product 0 is: lidl
 unit of the product 0 is: kg
-available quantity of the product 0 is: 20
-comment for the product 0 is: testov_product
+available quantity of the product 0 is: 40
+location of the product in storage 0 is: 111
+comment for the product 0 is: comment
+
+name of the product 1 is: tigani3
+the expiration date of the product 1 is: 5052020
+date in storage of the product 1 is: 5102020
+name of manufactor of the product 1 is: lidl
+unit of the product 1 is: kg
+available quantity of the product 1 is: 20
+location of the product in storage 1 is: 133
+comment for the product 1 is: comment
 

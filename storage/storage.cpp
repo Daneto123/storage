@@ -1,8 +1,9 @@
 #include "storage.h"
 #include "function_for_currect_data.cpp"
 
+//ideqta e vzaimstvana ot internet
 Storage::Storage(){
-    products = new Product*[10];
+    products = new Product*[current_number];
     current_number = 0;
 }
 
@@ -12,7 +13,7 @@ Storage::Storage(int current_number){
 }
 
 Storage::Storage(const Storage& other){
-    products = new Product*[10];
+    products = new Product*[other.current_number];
     for (int i = 0; i < other.current_number; i++){
         products[i] = new Product(*other.products[i]);
     }
@@ -25,7 +26,7 @@ Storage& Storage::operator=(const Storage& other){
     }
     remove_el();
 
-    products = new Product*[10];
+    products = new Product*[other.current_number];
     for (int i = 0; i < other.current_number; i++){
         products[i] = new Product(*other.products[i]);
     }
@@ -33,6 +34,13 @@ Storage& Storage::operator=(const Storage& other){
 
     return *this;
 }
+// do tuk 
+
+/**
+ * метод за добавяне на продукт
+ * @param Product - обект  
+ * @param location - локация на продукта
+ */
 
 void Storage::add_product(Product &product, int location){
 
@@ -84,13 +92,11 @@ void Storage::add_product(Product &product, int location){
             flag_u = true;
         }
 
-        Location locat;
         int section = (location/10000)%10;
         int shelf = (location/100)%100;
         int num = (location%100);
 
-        Position position(section, shelf, num);
-        locat.is_free_location(position);
+        is_free_location(new Position(section, shelf, num));
         
     }
 
@@ -117,7 +123,7 @@ void Storage::clean_odd_products(int _date) {
     for(int i = 0; i < current_number;i++){
         if((*products[i]).get_expiration_date() <= _date){
            move(i);
-           locat.remove_location(i);
+           //locat.remove_location(i);
         }
     }
     cout<<"the storage is successfuly cleaned from odd products\n";
