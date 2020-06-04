@@ -80,12 +80,14 @@ int main(){
 
         }else if(command == "save"){
 
-            commands.save();
+            storage.in_to_file("product1.txt");
 
         }else if(command == "save_as"){
-
-            string file_name = words[1];
-            commands.save_as(file_name);
+            
+            char* file_name = new char[words[1].length() + 1];
+            strcpy(file_name, words[1].c_str());
+            storage.in_to_file(file_name);
+            delete file_name;
 
         }else if(command == "help"){
 

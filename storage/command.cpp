@@ -27,25 +27,6 @@ void Command::close(){
     }
 
 }
-    
-void Command::save(){
-    string delault_name = "product1.txt"; 
-    save_as("product1.txt");
-}
-
-void Command::save_as(string file_name){
-
-    file.open(file_name);
-    if (file.is_open()){
-        for(int i = 0; i<size_of_vector;i++){
-            file << file_read[i] << endl;
-        }
-        cout<<"successfuly saved\n";
-    }else{
-        cout<<"can't open the file\n";
-    }
-
-}
 
 void Command::help(){
 

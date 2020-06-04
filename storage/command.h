@@ -13,8 +13,6 @@ public:
 
     void open(string file_name);
     void close();
-    void save();
-    void save_as(string file_name);
     void help();
 
 };
