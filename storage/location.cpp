@@ -20,7 +20,7 @@ void Location::is_free_location(Position *position){
                 int num = (new_loct%100);
 
                 locations.push_back(new Position(section, shelf, num));
-                cout<<(*locations[i]).get_section()<<(*locations[i]).get_shelf()<<(*locations[i]).get_num()<<endl;
+                //cout<<(*locations[i]).get_section()<<(*locations[i]).get_shelf()<<(*locations[i]).get_num()<<endl;
                 flag = false;
             }
         }
@@ -28,7 +28,7 @@ void Location::is_free_location(Position *position){
 
     if(flag == true){
         locations.push_back(position);
-        cout<<"you successfuly add product "<<(*locations[count]).get_section()<<(*locations[count]).get_shelf()<<(*locations[count]).get_num()<<endl;
+        //cout<<"you successfuly add product "<<(*locations[count]).get_section()<<(*locations[count]).get_shelf()<<(*locations[count]).get_num()<<endl;
         count++;
     }
 

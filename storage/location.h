@@ -57,6 +57,12 @@ public:
       return *this;
     }
 
+    ~Location(){
+        for(auto *l : locations){
+            delete l;
+        }
+    }
+
     void is_free_location(Position *position);
     void remove_location(int index);
 

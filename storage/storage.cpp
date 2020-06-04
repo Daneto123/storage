@@ -21,19 +21,20 @@ Storage::Storage(const Storage& other){
 }
 
 Storage& Storage::operator=(const Storage& other){
-    if(this == &other){
-        return *this;
-    }
-    remove_el();
 
-    products = new Product*[other.current_number];
-    for (int i = 0; i < other.current_number; i++){
-        products[i] = new Product(*other.products[i]);
+    if(this != &other){
+        remove_el();
+
+        products = new Product*[other.current_number];
+        for (int i = 0; i < other.current_number; i++){
+            products[i] = new Product(*other.products[i]);
+        }
+        current_number = other.current_number;
     }
-    current_number = other.current_number;
 
     return *this;
 }
+
 // do tuk 
 
 /**
@@ -118,12 +119,11 @@ void Storage::clean_odd_products(int _date) {
 
     //int day = 27;
     //int month = 3;
-    Location locat;
 
     for(int i = 0; i < current_number;i++){
         if((*products[i]).get_expiration_date() <= _date){
            move(i);
-           //locat.remove_location(i);
+           remove_location(i);
         }
     }
     cout<<"the storage is successfuly cleaned from odd products\n";
