@@ -1,1 +1,19 @@
 storage:
+name of the product 0 is: banan
+the expiration date of the product 0 is: 3052020
+date in storage of the product 0 is: 3012020
+name of manufactor of the product 0 is: ivan
+unit of the product 0 is: kg
+available quantity of the product 0 is: 20
+location of the product in storage 0 is: 111
+comment for the product 0 is: testov_product
+
+name of the product 1 is: chocolate
+the expiration date of the product 1 is: 4052021
+date in storage of the product 1 is: 3052021
+name of manufactor of the product 1 is: ivan
+unit of the product 1 is: kg
+available quantity of the product 1 is: 20
+location of the product in storage 1 is: 659
+comment for the product 1 is: testov_product
+

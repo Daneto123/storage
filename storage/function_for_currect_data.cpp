@@ -6,20 +6,20 @@
  * @param date - дата въведена от потребителя
  */
 
-bool is_valid_date(int date) {
+bool is_valid_date(int _date) {
 
-    int month = (date / 100)%100;
-    int day =  (date)%100;
-    int year = (date / 10000)%1000;
+    int _month = (_date / 100)%100;
+    int _day =  (_date)%100;
+    int _year = (_date / 10000)%1000;
     bool flag = true;
 
-    if(date < 1012019){
+    if(_date < 1012019){
         flag = false;
     }else{
-        if(month > 12 && month < 1){
+        if(_month > 12 && _month < 1){
             flag = false;
         }else{
-            if((day > 31 && day < 1) || (day > 29 && day < 1 && year%4!=0)){
+            if((_day > 31 && _day < 1) || (_day > 29 && _day < 1 && _year%4!=0)){
                 flag = false;
             }
         }
@@ -36,11 +36,11 @@ bool is_valid_date(int date) {
  * @param unit - мерна еденица въведена от потребителя
  */
 
-bool currect_unit(char* unit){
+bool currect_unit(char* _unit){
 
     bool flag = true;
 
-    if((unit[0] == 'g' && unit[1] == 'r') || (unit[0] == 'k' && unit[1] == 'g') || (unit[0] == 'm' && unit[1] == 'l') || (unit[0] == 'l') || (unit[0] == 'l' && unit[1] == 'b' && unit[2] == 's')){
+    if((_unit[0] == 'g' && _unit[1] == 'r') || (_unit[0] == 'k' && _unit[1] == 'g') || (_unit[0] == 'm' && _unit[1] == 'l') || (_unit[0] == 'l') || (_unit[0] == 'l' && _unit[1] == 'b' && _unit[2] == 's')){
         flag = true;
     }else{
         flag = false;
@@ -55,7 +55,10 @@ bool currect_unit(char* unit){
 }
 
 void Storage::move(int i){
-    for (int k = i; k < current_number; k++){ 
+
+    delete products[i];
+
+    for (int k = i; k < current_number; k++){
         (*products[k])._name = (*products[k+1])._name;
         (*products[k]).expiration_date = (*products[k+1]).expiration_date;
         (*products[k]).date_in_storage = (*products[k+1]).date_in_storage;
@@ -64,12 +67,14 @@ void Storage::move(int i){
         (*products[k]).available_quantity = (*products[k+1]).available_quantity;
         (*products[k])._comment = (*products[k+1])._comment;
     }
+    //delete products[current_number];
     current_number--;
+    
 }
 
 // void Storage::move(int i){
-//     for (int k = i; k < current_number; k++){ 
-//         delete products[i];
-//     }
+
+//     delete products[i];
 //     current_number--;
+
 // }

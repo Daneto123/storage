@@ -41,7 +41,7 @@ void Location::is_free_location(Position *position){
 
 void Location::remove_location(int index){
 
-    locations.erase(locations.begin(), locations.begin() + index);
+    locations.erase(locations.begin() + index);
     
     cout<<"location is eraced successfuly"<<endl;
 

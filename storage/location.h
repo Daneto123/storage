@@ -58,6 +58,7 @@ public:
     }
 
     ~Location(){
+        
         for(auto *l : locations){
             delete l;
         }

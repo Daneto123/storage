@@ -110,29 +110,30 @@ int main(){
 
         }else if(command == "add"){
 
-            char* name = new char[words[1].length()+1];
-            strcpy(name, words[1].c_str());
+            char* _name = new char[words[1].length()+1];
+            strcpy(_name, words[1].c_str());
             int expiration_date = stoi(words[2]);
             int date_in_storage = stoi(words[3]);
             char* name_of_manufactor = new char[words[4].length()+1];
             strcpy(name_of_manufactor, words[4].c_str());
-            char* unit = new char[words[5].length()+1];
-            strcpy(unit, words[5].c_str());
+            char* _unit = new char[words[5].length()+1];
+            strcpy(_unit, words[5].c_str());
             int quantity = stoi(words[6]);
-            char* comment = new char[words[7].length()+1];
-            strcpy(comment, words[7].c_str());
-            int location = stoi(words[8]);
+            char* _comment = new char[words[7].length()+1];
+            strcpy(_comment, words[7].c_str());
+            int _location = stoi(words[8]);
 
-            Product product(name, expiration_date, date_in_storage, name_of_manufactor, unit, quantity, comment);
-            storage.add_product(product, location);
+            Product product(_name, expiration_date, date_in_storage, name_of_manufactor, _unit, quantity, _comment);
+            storage.add_product(product, _location);
             storage.in_to_file("product1.txt");
 
-            delete[] name; delete[] name_of_manufactor; delete[] unit, delete[] comment;
+            delete[] _name; delete[] name_of_manufactor; delete[] _unit, delete[] _comment;
 
         }else if(command == "clean"){
 
-            int date = stoi(words[1]);
-            storage.clean_odd_products(date);
+            int _date = stoi(words[1]);
+            storage.clean_odd_products(_date);
+            storage.show_products();
             storage.in_to_file("product1.txt");
 
         }else if(command == "remove"){

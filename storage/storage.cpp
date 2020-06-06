@@ -115,17 +115,19 @@ void Storage::add_product(Product &product, int location){
  * @param date - дата под която да изчисти 
  */
 
-void Storage::clean_odd_products(int _date) {
+void Storage::clean_odd_products(int date) {
 
     //int day = 27;
     //int month = 3;
 
     for(int i = 0; i < current_number;i++){
-        if((*products[i]).get_expiration_date() <= _date){
+        if((*products[i]).get_expiration_date() < date){
            move(i);
            remove_location(i);
+           //cout<<(*products[i]).get_name()<<endl;
         }
     }
+
     cout<<"the storage is successfuly cleaned from odd products\n";
 }
 
@@ -141,21 +143,22 @@ void Storage::log_products(int start_date, int end_date){
 
     cout<<"products log from "<<start_date<<" to "<<end_date<<endl<<endl;
 
-    for(size_t i = 0;i < current_number;i++){
+    for(size_t i = 0;i <= current_number;i++){
         if(start_date < (*products[i]).get_date_in_storage()){
-            cout<<"you entered products: "<<endl;
-            for(int m = start_date, k = i; start_date <= end_date && k<current_number;m += 10000, k++){
-                if((*products[k]).get_date_in_storage() <= end_date){
+            k = i;
+            while(start_date!=end_date){
+                if((*products[k]).get_date_in_storage() < end_date){
                     cout<<"name of the product "<<(*products[k]).get_name()<<endl;
-                    cout<<"the expiration date of the product "<<(*products[k]).get_expiration_date()<<endl;
+                    cout<<"expiration date of the product "<<(*products[k]).get_expiration_date()<<endl;
                     cout<<"date in storage of the product "<<(*products[k]).get_date_in_storage()<<endl;
-                    cout<<"available quantity of the product "<<(*products[k]).get_available_quantity()<< " " <<(*products[k]).get_unit()<<endl;
-                    cout<<endl;
+                    cout<<"available quantity of the product "<<(*products[k]).get_available_quantity()<<" "<<(*products[k]).get_unit()<<endl;
                 }
+                k++;       
+                start_date += 100000;
             }
         }
-        break;
     }
+
 }
 
 /**
