@@ -54,6 +54,8 @@ void Storage::print_file(const string &file_path){
     }
 }
 
+//взета от geekforgeeks.com
+
 string* split(const string &input){
     
     string* words = new string[256];

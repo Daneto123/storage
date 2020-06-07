@@ -1,7 +1,6 @@
 #include "storage.h"
 #include "function_for_currect_data.cpp"
 
-//ideqta e vzaimstvana ot internet
 Storage::Storage(){
     products = new Product*[current_number];
     current_number = 0;
@@ -35,8 +34,6 @@ Storage& Storage::operator=(const Storage& other){
     return *this;
 }
 
-// do tuk 
-
 /**
  * метод за добавяне на продукт
  * @param Product - обект  
@@ -45,8 +42,6 @@ Storage& Storage::operator=(const Storage& other){
 
 void Storage::add_product(Product &product, int location){
 
-    //cout<<product.name<<endl;
-    //cout<<product.comment<<endl;
     char* new_unit = new char[8];
     int quantity = 0, new_date = 0;
     bool flag = true, flag_ed = false, flag_ds = false, flag_u = false;
@@ -124,7 +119,6 @@ void Storage::clean_odd_products(int date) {
         if((*products[i]).get_expiration_date() < date){
            move(i);
            remove_location(i);
-           //cout<<(*products[i]).get_name()<<endl;
         }
     }
 
@@ -170,7 +164,6 @@ void Storage::log_products(int start_date, int end_date){
 
 void Storage::remove_product(const char* name_to_remove, int quantity, const char* unit_to_remove){
 
-    Location locat;
     for(int i = 0; i < current_number;i++){
         if(strcmp((*products[i]).get_name(), name_to_remove) == 0){
             if(((*products[i]).get_available_quantity() >= quantity) && ((strcmp((*products[i]).get_unit(), unit_to_remove) == 0))){
@@ -178,7 +171,7 @@ void Storage::remove_product(const char* name_to_remove, int quantity, const cha
                 if((*products[i]).get_available_quantity() == 0){
                     cout<<"you successfuly removed location\n";
                     move(i);
-                    locat.remove_location(i);
+                    remove_location(i);
                 }else{
                     cout<<"you successfuly removed "<<quantity<<" left: "<<(*products[i]).get_available_quantity() << " " << (*products[i]).get_unit() <<" from " <<(*products[i]).get_name()<<endl<<endl;
                 }
@@ -192,10 +185,8 @@ void Storage::remove_product(const char* name_to_remove, int quantity, const cha
  */
 
 void Storage::show_products() {
-    //cout<<"pone tova dano raboti";
         
-    for(int i = 0 ;i < current_number;i++){
-        //remove_product(products[h].name, products[h].available_quantity, products[h].unit);  
+    for(int i = 0 ;i < current_number;i++){ 
         cout<<"name of the product " << " is: " << (*products[i]).get_name() << endl;
         cout<<"available quantity of the product " << "is: " << (*products[i]).get_available_quantity() << " " << (*products[i]).get_unit() << endl;
         cout<<endl;

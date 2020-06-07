@@ -56,7 +56,7 @@ bool currect_unit(char* _unit){
 
 void Storage::move(int i){
 
-    delete products[i];
+    current_number--;
 
     for (int k = i; k < current_number; k++){
         (*products[k])._name = (*products[k+1])._name;
@@ -67,14 +67,6 @@ void Storage::move(int i){
         (*products[k]).available_quantity = (*products[k+1]).available_quantity;
         (*products[k])._comment = (*products[k+1])._comment;
     }
-    //delete products[current_number];
-    current_number--;
     
 }
 
-// void Storage::move(int i){
-
-//     delete products[i];
-//     current_number--;
-
-// }
