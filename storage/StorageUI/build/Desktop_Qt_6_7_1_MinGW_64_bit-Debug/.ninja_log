@@ -1,0 +1,21 @@
+# ninja log v5
+2	2985	7390254841298009	StorageUI_autogen/timestamp	ea418deeb472e789
+2	2985	7390254841298009	StorageUI_autogen/mocs_compilation.cpp	ea418deeb472e789
+2	2985	7390254841298009	C:/Users/dancho/Desktop/oop/storage/storage/StorageUI/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/StorageUI_autogen/timestamp	ea418deeb472e789
+2	2985	7390254841298009	C:/Users/dancho/Desktop/oop/storage/storage/StorageUI/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/StorageUI_autogen/mocs_compilation.cpp	ea418deeb472e789
+2985	5044	7390254862586830	CMakeFiles/StorageUI.dir/StorageUI_autogen/mocs_compilation.cpp.obj	dfcdb17c20d8868d
+2991	5093	7390254863087163	CMakeFiles/StorageUI.dir/main.cpp.obj	323f6f7f30f79d41
+2988	5402	7390254866187602	CMakeFiles/StorageUI.dir/mainwindow.cpp.obj	58e3e18e41a2e04e
+5403	5673	7390254868859294	StorageUI.exe	f4146d293e560dea
+13	204	7390266516283965	StorageUI_autogen/timestamp	ea418deeb472e789
+13	204	7390266516283965	StorageUI_autogen/mocs_compilation.cpp	ea418deeb472e789
+13	204	7390266516283965	C:/Users/dancho/Desktop/oop/storage/storage/StorageUI/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/StorageUI_autogen/timestamp	ea418deeb472e789
+13	204	7390266516283965	C:/Users/dancho/Desktop/oop/storage/storage/StorageUI/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/StorageUI_autogen/mocs_compilation.cpp	ea418deeb472e789
+229	4810	7390266562335796	CMakeFiles/StorageUI.dir/mainwindow.cpp.obj	58e3e18e41a2e04e
+4811	5040	7390266564616116	StorageUI.exe	f4146d293e560dea
+14	199	7390278728551294	StorageUI_autogen/timestamp	ea418deeb472e789
+14	199	7390278728551294	StorageUI_autogen/mocs_compilation.cpp	ea418deeb472e789
+14	199	7390278728551294	C:/Users/dancho/Desktop/oop/storage/storage/StorageUI/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/StorageUI_autogen/timestamp	ea418deeb472e789
+14	199	7390278728551294	C:/Users/dancho/Desktop/oop/storage/storage/StorageUI/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/StorageUI_autogen/mocs_compilation.cpp	ea418deeb472e789
+223	4829	7390278774832770	CMakeFiles/StorageUI.dir/mainwindow.cpp.obj	58e3e18e41a2e04e
+4829	5062	7390278777154026	StorageUI.exe	f4146d293e560dea
