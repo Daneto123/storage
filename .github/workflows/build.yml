@@ -24,14 +24,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest]
+        include:
+          - os: windows-latest
+            qt: '6.7.*'
+          # Qt 6.7 links the AGL framework, which the current macOS SDK no longer has.
+          - os: macos-latest
+            qt: '6.8.*'
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
-          version: '6.7.*'
+          version: ${{ matrix.qt }}
           cache: true
       - name: Build
         run: |
