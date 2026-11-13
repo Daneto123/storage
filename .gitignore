@@ -36,3 +36,13 @@
 *.app
 
 # End of https://www.toptal.com/developers/gitignore/api/c++
+### Build output / IDE ###
+build/
+build-*/
+out/
+cmake-build-*/
+CMakeLists.txt.user*
+.vs/
+.vscode/
+.idea/
+*.autosave
