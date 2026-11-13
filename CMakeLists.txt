@@ -11,6 +11,16 @@ endif()
 
 find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Widgets)
 
+# Qt links the AGL framework on macOS, but recent macOS SDKs no longer ship
+# it ("ld: framework 'AGL' not found"). The app does not use OpenGL, so drop it.
+if(APPLE AND TARGET WrapOpenGL::WrapOpenGL)
+  get_target_property(_gl_libs WrapOpenGL::WrapOpenGL INTERFACE_LINK_LIBRARIES)
+  if(_gl_libs)
+    list(FILTER _gl_libs EXCLUDE REGEX "AGL")
+    set_target_properties(WrapOpenGL::WrapOpenGL PROPERTIES INTERFACE_LINK_LIBRARIES "${_gl_libs}")
+  endif()
+endif()
+
 if(MSVC)
   # Sources contain Bulgarian text in UTF-8.
   add_compile_options(/utf-8 /W4)
